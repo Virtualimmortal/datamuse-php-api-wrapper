@@ -1,8 +1,8 @@
 <?php
+
 namespace YeTii\RhymeGenerator;
 
-class Engine {
+class Engine
+{
 
-
-	
 }
