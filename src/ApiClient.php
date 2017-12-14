@@ -1,8 +1,8 @@
 <?php
 namespace YeTii\RhymeGenerator;
 
+use FileCache;
 use YeTii\General\Str;
-use \FileCache;
 
 class ApiClient {
 
@@ -108,5 +108,18 @@ class ApiClient {
 		}
 		return $this;
 	}
-	
+
+    public function getParameter(string $parameter)
+    {
+        if (isset($this->parameters[$parameter])) {
+            return $this->parameters[$parameter];
+        }
+
+        return null;
+    }
+
+    public function getResult()
+    {
+        return $this->result;
+    }
 }
