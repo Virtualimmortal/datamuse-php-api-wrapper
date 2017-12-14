@@ -1,10 +1,13 @@
 # datamuse-php-api-wrapper
+
 A PHP API Wrapper for datamuse.com
 
-
 ## Usage
+
 ##### Options:
+
 There are a collection of different methods you can use:
+
 ```
 Command Name        Code        RhymeOpt Constant              Setter Method
 
@@ -32,6 +35,7 @@ right context       rc          RhymeOpt::RIGHT_CONTEXT        rightContext()
 ```
 
 ##### PHP Code Example:
+
 ```php
 use \YeTii\RhymeGenerator\RhymeOpt;
 use \YeTii\RhymeGenerator\ApiClient;
@@ -59,6 +63,7 @@ $result = $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->ofTopic('animals')
 ```
 
 ##### Caching:
+
 ```php
 use \YeTii\RhymeGenerator\ApiClient;
 $time = 86400; // time in seconds before cache should expire; default:86400
