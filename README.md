@@ -56,3 +56,11 @@ $client->setOpts([
 
 // You can chain the commands (again, you can mix and match):
 $result = $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->ofTopic('animals')->getWords()->result;```
+
+##### Caching:
+```php
+use \YeTii\RhymeGenerator\ApiClient;
+$time = 86400; // time in seconds before cache should expire; default:86400
+$client = new ApiClient([
+	'cache_lifetime'=>$time
+]);```
