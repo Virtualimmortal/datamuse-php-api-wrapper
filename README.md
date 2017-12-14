@@ -37,7 +37,7 @@ use \YeTii\RhymeGenerator\RhymeOpt;
 use \YeTii\RhymeGenerator\ApiClient;
 $client = new ApiClient();
 
-// Set option (following 3 lines produce same result)
+// Set option (following 4 lines produce same result)
 $client->setOpt('spelled like', 'elepant');
 $client->setOpt('sp', 'elepant');
 $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant');
