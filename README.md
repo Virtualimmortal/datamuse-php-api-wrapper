@@ -6,7 +6,7 @@ A PHP API Wrapper for datamuse.com
 ##### Options:
 There are a collection of different methods you can use:
 ```
-Command Name 		Code        RhymeOpt Constant              Setter Method
+Command Name        Code        RhymeOpt Constant              Setter Method
 
 means like          ml          RhymeOpt::MEANS_LIKE           meansLike()
 sounds like         sl          RhymeOpt::SOUNDS_LIKE          soundsLike()
