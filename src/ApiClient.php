@@ -42,6 +42,7 @@ class ApiClient
     ];
 
     protected $cache_lifetime = 86400;
+    protected $cache_dir = __DIR__.'/cache';
 
     public function __call($name, $args)
     {
@@ -69,9 +70,13 @@ class ApiClient
             $this->cache_lifetime = $args['cache_lifetime'];
             unset($args['cache_lifetime']);
         }
+        if (isset($args['cache_dir'])) {
+            $this->cache_dir = realpath($args['cache_dir']);
+            unset($args['cache_dir']);
+        }
         $this->setOpts($args);
 
-        $this->cache = new FileCache(['cache_dir' => __DIR__.'/cache']);
+        $this->cache = new FileCache(['cache_dir' => $this->cache_dir]);
     }
 
     public function setOpts(array $args = null)

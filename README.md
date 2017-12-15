@@ -71,13 +71,15 @@ $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()-
 
 ##### Caching:
 
-Caching uses `inouet/file-cache` package (https://github.com/inouet/file-cache) and I have defaulted the API Wrapper to store the cache in src/cache (todo:change)
+Caching uses `inouet/file-cache` package (read more at https://github.com/inouet/file-cache)
 
 ```php
 use \YeTii\RhymeGenerator\ApiClient;
 $time = 86400; // time in seconds before cache should expire; default:86400; should be no less than 86400
+$dir = __DIR__.'/cache';
 $client = new ApiClient([
-	'cache_lifetime'=>$time
+	'cache_lifetime'=>$time,
+	'cache_dir'=>$dir
 ]);
 
 $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result; // not cached
@@ -85,8 +87,3 @@ $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()-
 $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result; // cached
 
 ```
-
-
-## TODO:
-
-Custom cache directory `$client = new ApiClient([ 'cache_dir'=>$custom_dir ]);`
