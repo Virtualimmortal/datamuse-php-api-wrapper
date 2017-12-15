@@ -76,7 +76,7 @@ Caching uses `inouet/file-cache` package (read more at https://github.com/inouet
 ```php
 use \YeTii\RhymeGenerator\ApiClient;
 $time = 86400; // time in seconds before cache should expire; default:86400; should be no less than 86400
-$dir = __DIR__.'/cache'; // note: directory is realpath()'d
+$dir = __DIR__.'/cache'; // absolute path of folder to store cache in
 $client = new ApiClient([
 	'cache_lifetime'=>$time,
 	'cache_dir'=>$dir

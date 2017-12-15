@@ -71,7 +71,7 @@ class ApiClient
             unset($args['cache_lifetime']);
         }
         if (isset($args['cache_dir'])) {
-            $this->cache_dir = realpath($args['cache_dir']);
+            $this->cache_dir = $args['cache_dir'];
             unset($args['cache_dir']);
         }
         $this->setOpts($args);

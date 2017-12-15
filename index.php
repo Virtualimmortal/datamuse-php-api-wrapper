@@ -8,9 +8,12 @@ include (__DIR__.'/vendor/autoload.php');
 use YeTii\RhymeGenerator\RhymeOpt;
 use YeTii\RhymeGenerator\ApiClient;
 
-$client = new ApiClient();
+$client = new ApiClient([
+	'cache_lifetime'=>86200,
+	'cache_dir'=>__DIR__.'/newcache'
+]);
 // $client->spelledLike('elepant')->getWords();//setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->getWords();
-$result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result;
+$result = $client->setOpt(RhymeOpt::PERFECT_RHYMES, 'bake')->ofTopic('food')->getWords()->result;
 print_r($client);
 
 die();
