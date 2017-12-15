@@ -58,6 +58,11 @@ class ApiClient
         return $this;
     }
 
+    public function __get($name)
+    {
+        return isset($this->{$name}) ? $this->{$name} : null;
+    }
+
     public function __construct(array $args = null)
     {
         if (isset($args['cache_lifetime'])) {

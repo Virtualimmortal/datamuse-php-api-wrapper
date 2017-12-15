@@ -9,7 +9,8 @@ use YeTii\RhymeGenerator\RhymeOpt;
 use YeTii\RhymeGenerator\ApiClient;
 
 $client = new ApiClient();
-$client->spelledLike('elepant')->getWords();//setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->getWords();
-print_r($client);
+// $client->spelledLike('elepant')->getWords();//setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->getWords();
+$result = $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->ofTopic('animals')->getWords()->result;
+print_r($result);
 
 die();
