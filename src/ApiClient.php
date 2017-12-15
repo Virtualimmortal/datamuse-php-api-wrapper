@@ -125,11 +125,7 @@ class ApiClient
 
     public function getParameter(string $parameter)
     {
-        if (isset($this->parameters[$parameter])) {
-            return $this->parameters[$parameter];
-        }
-
-        return null;
+        return isset($this->parameters[$parameter]) ? $this->parameters[$parameter] : null;
     }
 
     public function getResult()
