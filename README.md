@@ -59,7 +59,8 @@ $client->setOpts([
 ]);
 
 // You can chain the commands (again, you can mix and match):
-$result = $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->ofTopic('animals')->getWords()->result;
+$result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result;
+// Now you have your cake.
 ```
 
 ##### Caching:

@@ -10,7 +10,7 @@ use YeTii\RhymeGenerator\ApiClient;
 
 $client = new ApiClient();
 // $client->spelledLike('elepant')->getWords();//setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->getWords();
-$result = $client->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->ofTopic('animals')->getWords()->result;
-print_r($result);
+$result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result;
+print_r($client);
 
 die();
