@@ -117,4 +117,18 @@ class ApiClient
         }
         return $this;
     }
+
+    public function getParameter(string $parameter)
+    {
+        if (isset($this->parameters[$parameter])) {
+            return $this->parameters[$parameter];
+        }
+
+        return null;
+    }
+
+    public function getResult()
+    {
+        return $this->result;
+    }
 }

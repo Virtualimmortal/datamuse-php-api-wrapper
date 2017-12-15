@@ -1,5 +1,6 @@
 {
     "name": "undeadyetii/rhymegenerator",
+    "type": "library",
     "description": "Generates rhymes with little to moderate user input",
     "license": "MIT",
     "authors": [
@@ -9,7 +10,6 @@
             "role": "Developer"
         }
     ],
-    "type": "project",
     "minimum-stability": "dev",
     "require": {
         "php": "^7.1",
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "YeTii\\RhymeGenerator\\": "src/"
+            "YeTii\\RhymeGenerator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "YeTii\\": "tests/"
+            "YeTii\\RhymeGenerator\\": "tests"
         }
     },
     "scripts": {
