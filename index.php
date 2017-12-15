@@ -9,6 +9,7 @@ use YeTii\RhymeGenerator\RhymeOpt;
 use YeTii\RhymeGenerator\ApiClient;
 
 $client = new ApiClient([
+	'cache_enable'=>false,
 	'cache_lifetime'=>86200,
 	'cache_dir'=>__DIR__.'/newcache'
 ]);

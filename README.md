@@ -55,6 +55,8 @@ $client->spelledLike('elepant');                     // uses Setter Method     |
 $client->getWords();
 // Get the result array:
 $result = $client->result;
+// Get where the result is from (cache or fresh from api):
+$result_from = $client->result_from; // `cache` or `api`
 
 // Setting multiple options (you can mix an match Command Names / Code / RhymeOpt Constants)
 $client->setOpts([
@@ -85,5 +87,11 @@ $client = new ApiClient([
 $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result; // not cached
 // now exact_rhyme:bake|of_topic:food is now cached.
 $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()->result; // cached
+
+// DISABLING CACHE (not recommended -- if you do, add your own caching methods)
+$client = new ApiClient([
+	'cache_enable'=>false, // to disable
+]);
+// alternatively, setting cache_lifetime to 0 should work too, but cache_enable=>false will completely stop caching
 
 ```

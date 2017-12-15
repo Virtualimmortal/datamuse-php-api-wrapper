@@ -41,8 +41,10 @@ class ApiClient
         'rc'      => 'right context',
     ];
 
+    protected $cache_enable = true;
     protected $cache_lifetime = 86400;
     protected $cache_dir = __DIR__.'/cache';
+    protected $cache;
 
     public function __call($name, $args)
     {
@@ -66,17 +68,16 @@ class ApiClient
 
     public function __construct(array $args = null)
     {
-        if (isset($args['cache_lifetime'])) {
-            $this->cache_lifetime = $args['cache_lifetime'];
-            unset($args['cache_lifetime']);
-        }
-        if (isset($args['cache_dir'])) {
-            $this->cache_dir = $args['cache_dir'];
-            unset($args['cache_dir']);
+        foreach (['cache_dir','cache_lifetime','cache_enable'] as $key) {
+            if (isset($args[$key])) {
+                $this->{$key} = $args[$key];
+                unset($args[$key]);
+            }
         }
         $this->setOpts($args);
 
-        $this->cache = new FileCache(['cache_dir' => $this->cache_dir]);
+        if ($this->cache_enable)
+            $this->cache = new FileCache(['cache_dir' => $this->cache_dir]);
     }
 
     public function setOpts(array $args = null)
@@ -111,13 +112,14 @@ class ApiClient
                 }
             }
             $url = rtrim($url, '&');
-            $content = $this->cache->get($url);
+            $content = $this->cache_enable ? $this->cache->get($url) : null;
             $this->result_from = 'cache';
             if (!$content) {
-                $this->result_from = 'curl';
+                $this->result_from = 'api';
                 $content = file_get_contents($url);
                 if (strlen($content) && $content = json_decode($content)) {
-                    $this->cache->save($url, $content, $this->cache_lifetime);
+                    if ($this->cache_enable)
+                        $this->cache->save($url, $content, $this->cache_lifetime);
                 }
             }
             $this->result = $content;
