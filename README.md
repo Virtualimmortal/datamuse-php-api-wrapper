@@ -71,7 +71,7 @@ $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()-
 
 ##### Caching:
 
-Caching uses `inouet/file-cache` package (https://github.com/inouet/file-cache) and it defaulted to store the cache in src/cache
+Caching uses `inouet/file-cache` package (https://github.com/inouet/file-cache) and I have defaulted the API Wrapper to store the cache in src/cache (todo:change)
 
 ```php
 use \YeTii\RhymeGenerator\ApiClient;
