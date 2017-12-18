@@ -1,6 +1,6 @@
 <?php
 
-namespace YeTii\RhymeGenerator;
+namespace YeTii\DatamuseApi;
 
 class RhymeOpt
 {

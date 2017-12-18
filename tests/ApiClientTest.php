@@ -1,6 +1,6 @@
 <?php
 
-namespace YeTii\RhymeGenerator;
+namespace YeTii\DatamuseApi;
 
 use PHPUnit\Framework\TestCase;
 
@@ -82,5 +82,18 @@ class ApiClientTest extends TestCase
         $data = $this->apiClient->getResult();
 
         $this->assertNotEmpty($data);
+    }
+
+    public function testCanRetrieveProtectedProperty()
+    {
+        $this->assertEmpty($this->apiClient->parameter);
+    }
+
+    public function testCanCallMethodWithNoContent()
+    {
+        $result = $this->apiClient->spelledLike();
+
+        $this->assertInstanceOf(ApiClient::class, $result);
+        $this->assertNotContains(RhymeOpt::SPELLED_LIKE, $result->parameters);
     }
 }

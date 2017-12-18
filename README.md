@@ -1,6 +1,6 @@
 # datamuse-php-api-wrapper
 
-A PHP API Wrapper for datamuse.com
+A PHP wrapper for the datamuse.com API.
 
 ## Usage
 
@@ -41,8 +41,8 @@ Below shows you how to use these codes.
 ##### PHP Code Example:
 
 ```php
-use \YeTii\RhymeGenerator\RhymeOpt;
-use \YeTii\RhymeGenerator\ApiClient;
+use \YeTii\DatamuseApi\RhymeOpt;
+use \YeTii\DatamuseApi\ApiClient;
 $client = new ApiClient();
 
 // Set option (following 4 lines produce same result)
@@ -76,7 +76,7 @@ $result = $client->setOpt(RhymeOpt::EXACT, 'bake')->ofTopic('food')->getWords()-
 Caching uses `inouet/file-cache` package (read more at https://github.com/inouet/file-cache)
 
 ```php
-use \YeTii\RhymeGenerator\ApiClient;
+use \YeTii\DatamuseApi\ApiClient;
 $time = 86400; // time in seconds before cache should expire; default:86400; should be no less than 86400
 $dir = __DIR__.'/cache'; // absolute path of folder to store cache in
 $client = new ApiClient([
@@ -93,5 +93,4 @@ $client = new ApiClient([
 	'cache_enable'=>false, // to disable
 ]);
 // alternatively, setting cache_lifetime to 0 should work too, but cache_enable=>false will completely stop caching
-
 ```

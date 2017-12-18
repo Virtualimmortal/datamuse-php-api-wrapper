@@ -1,6 +1,6 @@
 <?php
 
-namespace YeTii\RhymeGenerator;
+namespace YeTii\DatamuseApi;
 
 use FileCache;
 use YeTii\General\Str;
