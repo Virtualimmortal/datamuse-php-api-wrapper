@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "YeTii\\RhymeGenerator\\": "src"
+            "YeTii\\DatamuseApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "YeTii\\RhymeGenerator\\": "tests"
+            "YeTii\\DatamuseApi\\": "tests"
         }
     },
     "scripts": {
