@@ -1,7 +1,7 @@
 {
-    "name": "undeadyetii/rhymegenerator",
+    "name": "undeadyetii/datamuse-php-api-wrapper",
     "type": "library",
-    "description": "Generates rhymes with little to moderate user input",
+    "description": "A PHP wrapper for the datamuse.com API.",
     "license": "MIT",
     "authors": [
         {
