@@ -83,4 +83,17 @@ class ApiClientTest extends TestCase
 
         $this->assertNotEmpty($data);
     }
+
+    public function testCanRetrieveProtectedProperty()
+    {
+        $this->assertEmpty($this->apiClient->parameter);
+    }
+
+    public function testCanCallMethodWithNoContent()
+    {
+        $result = $this->apiClient->spelledLike();
+
+        $this->assertInstanceOf(ApiClient::class, $result);
+        $this->assertNotContains(RhymeOpt::SPELLED_LIKE, $result->parameters);
+    }
 }
