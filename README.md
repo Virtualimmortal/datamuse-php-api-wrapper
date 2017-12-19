@@ -2,6 +2,22 @@
 
 A PHP wrapper for the datamuse.com API.
 
+## Structure
+
+```
+src/
+tests/
+vendor/
+```
+
+## Install
+
+Via Composer
+
+```bash
+$ composer require undeadyetii/datamuse-php-api-wrapper
+```
+
 ## Usage
 
 ##### Options:
@@ -94,3 +110,22 @@ $client = new ApiClient([
 ]);
 // alternatively, setting cache_lifetime to 0 should work too, but cache_enable=>false will completely stop caching
 ```
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Credits
+
+- [undeadyetii][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
+
+[link-packagist]: https://packagist.org/packages/undeadyetii/datamuse-php-api-wrapper
+[link-author]: https://github.com/undeadyetii
+[link-contributors]: ../../contributors
