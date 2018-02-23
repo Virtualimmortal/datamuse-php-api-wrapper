@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^7.1",
-        "undeadyetii/libraries": "^0.5",
+        "undeadyetii/libraries": "^1.4.1",
         "inouet/file-cache": "dev-master"
     },
     "require-dev": {

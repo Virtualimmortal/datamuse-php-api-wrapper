@@ -4,13 +4,13 @@ ini_set('html_errors', 0);
 error_reporting(E_ALL);
 print '<pre>';
 
-include (__DIR__.'/vendor/autoload.php');
-use YeTii\RhymeGenerator\RhymeOpt;
-use YeTii\RhymeGenerator\ApiClient;
+require_once 'vendor/autoload.php';
+use \YeTii\DatamuseApi\RhymeOpt;
+use \YeTii\DatamuseApi\ApiClient;
 
 $client = new ApiClient([
 	'cache_enable'=>false,
-	'cache_lifetime'=>86200,
+	'cache_lifetime'=>86000,
 	'cache_dir'=>__DIR__.'/newcache'
 ]);
 // $client->spelledLike('elepant')->getWords();//setOpt(RhymeOpt::SPELLED_LIKE, 'elepant')->getWords();
