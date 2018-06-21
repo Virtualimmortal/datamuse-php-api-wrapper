@@ -126,6 +126,12 @@ $ composer test
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
+
+[ico-version]: https://img.shields.io/packagist/v/undeadyetii/datamuse-php-api-wrapper.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/undeadyetii/datamuse-php-api-wrapper.svg?style=flat-square
+
 [link-packagist]: https://packagist.org/packages/undeadyetii/datamuse-php-api-wrapper
+[link-downloads]: https://packagist.org/packages/undeadyetii/datamuse-php-api-wrapper
 [link-author]: https://github.com/undeadyetii
 [link-contributors]: ../../contributors
