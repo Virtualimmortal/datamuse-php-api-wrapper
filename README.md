@@ -1,5 +1,9 @@
 # datamuse-php-api-wrapper
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE)
+[![Total Downloads][ico-downloads]][link-downloads]
+
 A PHP wrapper for the datamuse.com API.
 
 ## Structure
