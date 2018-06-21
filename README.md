@@ -24,34 +24,31 @@ $ composer require undeadyetii/datamuse-php-api-wrapper
 
 There are a 4 different methods of calling an option/relation. Below is a table showing each way.
 
-```
-Command Name        API Code      RhymeOpt Constant              Setter Method
-Plain Text          Abbreviation  Uppercase Snake Case           Camel Case
+Command Name       | API Code     | RhymeOpt Constant               | Setter Method
+------------------ | ------------ | ------------------------------- | ----------------
+means like         | ml           | `RhymeOpt::MEANS_LIKE`          | `meansLike()`
+sounds like        | sl           | `RhymeOpt::SOUNDS_LIKE`         | `soundsLike()`
+spelled like       | sp           | `RhymeOpt::SPELLED_LIKE`        | `spelledLike()`
+nouns by adjective | rel_jja      | `RhymeOpt::NOUNS_BY_ADJECTIVE`  | `nounsByAdjective()`
+adjectives by noun | rel_jjb      | `RhymeOpt::ADJECTIVES_BY_NOUN`  | `adjectivesByNoun()`
+synonyms of        | rel_syn      | `RhymeOpt::SYNONYMS_OF`         | `synonymsOf()`
+triggers of        | rel_trg      | `RhymeOpt::TRIGGERS_OF`         | `triggersOf()`
+antonyms of        | rel_ant      | `RhymeOpt::ANTONYMS_OF`         | `antonymsOf()`
+more specific than | rel_spc      | `RhymeOpt::MORE_SPECIFIC_THAN`  | `moreSpecificThan()`
+more general than  | rel_gen      | `RhymeOpt::MORE_GENERAL_THAN`   | `moreGeneralThan()`
+comprises of       | rel_com      | `RhymeOpt::COMPRISES_OF`        | `comprisesOf()`
+part of            | rel_par      | `RhymeOpt::PART_OF`             | `partOf()`
+words following    | rel_bga      | `RhymeOpt::WORDS_FOLLOWING`     | `wordsFollowing()`
+words preceding    | rel_bgb      | `RhymeOpt::WORDS_PRECEDING`     | `wordsPreceding()`
+perfect rhymes     | rel_rhy      | `RhymeOpt::PERFECT_RHYMES`      | `perfectRhymes()`
+approximate rhymes | rel_nry      | `RhymeOpt::APPROX_RHYMES`       | `approximateRhymes()`
+homophones of      | rel_hom      | `RhymeOpt::HOMOPHONES_OF`       | `homophonesOf()`
+matches consonants | rel_cns      | `RhymeOpt::MATCHES_CONSONANT`   | `matchesConsonants()`
+of topic           | topics       | `RhymeOpt::OF_TOPIC`            | `ofTopic()`
+left context       | lc           | `RhymeOpt::LEFT_CONTEXT`        | `leftContext()`
+right context      | rc           | `RhymeOpt::RIGHT_CONTEXT`       | `rightContext()`
 
-means like          ml            RhymeOpt::MEANS_LIKE           meansLike()
-sounds like         sl            RhymeOpt::SOUNDS_LIKE          soundsLike()
-spelled like        sp            RhymeOpt::SPELLED_LIKE         spelledLike()
-nouns by adjective  rel_jja       RhymeOpt::NOUNS_BY_ADJECTIVE   nounsByAdjective()
-adjectives by noun  rel_jjb       RhymeOpt::ADJECTIVES_BY_NOUN   adjectivesByNoun()
-synonyms of         rel_syn       RhymeOpt::SYNONYMS_OF          synonymsOf()
-triggers of         rel_trg       RhymeOpt::TRIGGERS_OF          triggersOf()
-antonyms of         rel_ant       RhymeOpt::ANTONYMS_OF          antonymsOf()
-more specific than  rel_spc       RhymeOpt::MORE_SPECIFIC_THAN   moreSpecificThan()
-more general than   rel_gen       RhymeOpt::MORE_GENERAL_THAN    moreGeneralThan()
-comprises of        rel_com       RhymeOpt::COMPRISES_OF         comprisesOf()
-part of             rel_par       RhymeOpt::PART_OF              partOf()
-words following     rel_bga       RhymeOpt::WORDS_FOLLOWING      wordsFollowing()
-words preceding     rel_bgb       RhymeOpt::WORDS_PRECEDING      wordsPreceding()
-perfect rhymes      rel_rhy       RhymeOpt::PERFECT_RHYMES       perfectRhymes()
-approximate rhymes  rel_nry       RhymeOpt::APPROX_RHYMES        approximateRhymes()
-homophones of       rel_hom       RhymeOpt::HOMOPHONES_OF        homophonesOf()
-matches consonants  rel_cns       RhymeOpt::MATCHES_CONSONANT    matchesConsonants()
-of topic            topics        RhymeOpt::OF_TOPIC             ofTopic()
-left context        lc            RhymeOpt::LEFT_CONTEXT         leftContext()
-right context       rc            RhymeOpt::RIGHT_CONTEXT        rightContext()
-```
-
-They are used to specify a relation in order to build your response (read more at https://datamuse.com/api)
+They are used to specify a relation in order to build your response (read more [here](https://datamuse.com/api)).  
 Below shows you how to use these codes.
 
 ##### PHP Code Example:
