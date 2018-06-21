@@ -2,14 +2,6 @@
 
 A PHP wrapper for the datamuse.com API.
 
-## Structure
-
-```
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
