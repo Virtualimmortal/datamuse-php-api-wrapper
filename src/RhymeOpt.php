@@ -2,6 +2,9 @@
 
 namespace YeTii\DatamuseApi;
 
+/**
+ * Class RhymeOpt
+ */
 class RhymeOpt
 {
     const MEANS_LIKE = 'ml';

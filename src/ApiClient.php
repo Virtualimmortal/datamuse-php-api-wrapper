@@ -5,18 +5,45 @@ namespace YeTii\DatamuseApi;
 use FileCache;
 use YeTii\General\Str;
 
+/**
+ * Class ApiClient
+ */
 class ApiClient
 {
+    /**
+     * @var array
+     */
     protected $result = [];
+    /**
+     * @var int
+     */
     protected $resultCount = 0;
+    /**
+     * @var null|string
+     */
     protected $resultFrom = null;
 
+    /**
+     * @var array
+     */
     protected $parameters = [];
+    /**
+     * @var null
+     */
     protected $query = null;
+    /**
+     * @var null|string
+     */
     protected $queryUrl = null;
 
+    /**
+     * @var array
+     */
     protected $tmp = [];
 
+    /**
+     * @var array
+     */
     protected $availableParameters = [
         'ml'      => 'means like',
         'sl'      => 'sounds like',
@@ -41,11 +68,28 @@ class ApiClient
         'rc'      => 'right context',
     ];
 
+    /**
+     * @var bool
+     */
     protected $cacheEnable = true;
+    /**
+     * @var int
+     */
     protected $cacheLifetime = 86400;
+    /**
+     * @var string
+     */
     protected $cacheDir = __DIR__.'/cache';
+    /**
+     * @var FileCache
+     */
     protected $cache;
 
+    /**
+     * @param string $name
+     * @param mixed $args
+     * @return $this
+     */
     public function __call($name, $args)
     {
         if (!isset($args[0])) {
@@ -61,11 +105,19 @@ class ApiClient
         return $this;
     }
 
+    /**
+     * @param string $name
+     * @return mixed|null
+     */
     public function __get($name)
     {
         return isset($this->{$name}) ? $this->{$name} : null;
     }
 
+    /**
+     * ApiClient constructor.
+     * @param array|null $args
+     */
     public function __construct(array $args = null)
     {
         foreach (['cache_dir', 'cache_lifetime', 'cache_enable'] as $key) {
@@ -81,6 +133,10 @@ class ApiClient
         }
     }
 
+    /**
+     * @param array|null $args
+     * @return $this
+     */
     public function setOpts(array $args = null)
     {
         if (is_array($args)) {
@@ -91,6 +147,11 @@ class ApiClient
         return $this;
     }
 
+    /**
+     * @param string $key
+     * @param string $value
+     * @return $this
+     */
     public function setOpt(string $key, string $value)
     {
         if (isset($this->availableParameters[$key])) {
@@ -99,6 +160,9 @@ class ApiClient
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function getWords()
     {
         if (count($this->parameters)) {
@@ -132,11 +196,18 @@ class ApiClient
         return $this;
     }
 
+    /**
+     * @param string $parameter
+     * @return mixed|null
+     */
     public function getParameter(string $parameter)
     {
         return isset($this->parameters[$parameter]) ? $this->parameters[$parameter] : null;
     }
 
+    /**
+     * @return array
+     */
     public function getResult()
     {
         return $this->result;
