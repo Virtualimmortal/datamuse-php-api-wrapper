@@ -8,16 +8,16 @@ use YeTii\General\Str;
 class ApiClient
 {
     protected $result = [];
-    protected $result_count = 0;
-    protected $result_from = null;
+    protected $resultCount = 0;
+    protected $resultFrom = null;
 
     protected $parameters = [];
     protected $query = null;
-    protected $query_url = null;
+    protected $queryUrl = null;
 
     protected $tmp = [];
 
-    protected $available_parameters = [
+    protected $availableParameters = [
         'ml'      => 'means like',
         'sl'      => 'sounds like',
         'sp'      => 'spelled like',
@@ -41,9 +41,9 @@ class ApiClient
         'rc'      => 'right context',
     ];
 
-    protected $cache_enable = true;
-    protected $cache_lifetime = 86400;
-    protected $cache_dir = __DIR__.'/cache';
+    protected $cacheEnable = true;
+    protected $cacheLifetime = 86400;
+    protected $cacheDir = __DIR__.'/cache';
     protected $cache;
 
     public function __call($name, $args)
@@ -52,7 +52,7 @@ class ApiClient
             return $this;
         }
         $str = (string)Str::normalCase($name);
-        foreach ($this->available_parameters as $key => $value) {
+        foreach ($this->availableParameters as $key => $value) {
             if ($value == $str || $key == $str) {
                 $this->setOpt($key, $args[0]);
                 break;
@@ -68,7 +68,7 @@ class ApiClient
 
     public function __construct(array $args = null)
     {
-        foreach (['cache_dir','cache_lifetime','cache_enable'] as $key) {
+        foreach (['cache_dir', 'cache_lifetime', 'cache_enable'] as $key) {
             if (isset($args[$key])) {
                 $this->{$key} = $args[$key];
                 unset($args[$key]);
@@ -76,8 +76,9 @@ class ApiClient
         }
         $this->setOpts($args);
 
-        if ($this->cache_enable)
-            $this->cache = new FileCache(['cache_dir' => $this->cache_dir]);
+        if ($this->cacheEnable) {
+            $this->cache = new FileCache(['cache_dir' => $this->cacheDir]);
+        }
     }
 
     public function setOpts(array $args = null)
@@ -92,7 +93,7 @@ class ApiClient
 
     public function setOpt(string $key, string $value)
     {
-        if (isset($this->available_parameters[$key])) {
+        if (isset($this->availableParameters[$key])) {
             $this->parameters[$key] = $value;
         }
         return $this;
@@ -108,24 +109,25 @@ class ApiClient
                 $value = urlencode($value);
                 $url .= "{$key}={$value}&";
                 if ($key != 'max') {
-                    $query[] = "{$this->available_parameters[$key]} `{$value}`";
+                    $query[] = "{$this->availableParameters[$key]} `{$value}`";
                 }
             }
             $url = rtrim($url, '&');
-            $content = $this->cache_enable ? $this->cache->get($url) : null;
-            $this->result_from = 'cache';
+            $content = $this->cacheEnable ? $this->cache->get($url) : null;
+            $this->resultFrom = 'cache';
             if (!$content) {
-                $this->result_from = 'api';
+                $this->resultFrom = 'api';
                 $content = file_get_contents($url);
                 if (strlen($content) && $content = json_decode($content)) {
-                    if ($this->cache_enable)
-                        $this->cache->save($url, $content, $this->cache_lifetime);
+                    if ($this->cacheEnable) {
+                        $this->cache->save($url, $content, $this->cacheLifetime);
+                    }
                 }
             }
             $this->result = $content;
-            $this->result_count = count($content);
+            $this->resultCount = count($content);
             $this->query = implode("\n", $query);
-            $this->query_url = Str::afterFirst($url, '?')->toString();
+            $this->queryUrl = Str::afterFirst($url, '?')->toString();
         }
         return $this;
     }
