@@ -7,6 +7,28 @@ use YeTii\General\Str;
 
 /**
  * Class ApiClient
+ *
+ * @method $this meansLike(string $text = null)
+ * @method $this soundsLike(string $text = null)
+ * @method $this spelledLike(string $text = null)
+ * @method $this nounsByAdjective(string $text = null)
+ * @method $this adjectiveByNoun(string $text = null)
+ * @method $this synonymsOf(string $text = null)
+ * @method $this triggersOf(string $text = null)
+ * @method $this antonymsOf(string $text = null)
+ * @method $this moreSpecificThan(string $text = null)
+ * @method $this moreGeneralThan(string $text = null)
+ * @method $this comprisesOf(string $text = null)
+ * @method $this partOf(string $text = null)
+ * @method $this wordsFollowing(string $text = null)
+ * @method $this wordsPreceding(string $text = null)
+ * @method $this perfectRhymes(string $text = null)
+ * @method $this approxRhymes(string $text = null)
+ * @method $this homophonesOf(string $text = null)
+ * @method $this matchesConsonant(string $text = null)
+ * @method $this ofTopic(string $text = null)
+ * @method $this leftContext(string $text = null)
+ * @method $this rightContext(string $text = null)
  */
 class ApiClient
 {
@@ -87,7 +109,7 @@ class ApiClient
 
     /**
      * @param string $name
-     * @param mixed $args
+     * @param mixed  $args
      * @return $this
      */
     public function __call($name, $args)
