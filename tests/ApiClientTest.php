@@ -4,6 +4,9 @@ namespace YeTii\DatamuseApi;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ApiClientTest
+ */
 class ApiClientTest extends TestCase
 {
     /**
@@ -16,14 +19,20 @@ class ApiClientTest extends TestCase
         $this->apiClient = new ApiClient();
     }
 
-    public function testCanConstructApiClientClass()
+    /**
+     * @test
+     */
+    public function canConstructApiClientClass()
     {
         $this->apiClient = new ApiClient();
 
         $this->assertInstanceOf(ApiClient::class, $this->apiClient);
     }
 
-    public function testCanConstructApiClientClassWithCacheLifetime()
+    /**
+     * @test
+     */
+    public function canConstructApiClientClassWithCacheLifetime()
     {
         $this->apiClient = new ApiClient([
             'cache_lifetime' => 0,
@@ -32,14 +41,20 @@ class ApiClientTest extends TestCase
         $this->assertInstanceOf(ApiClient::class, $this->apiClient);
     }
 
-    public function testCanSetSingleOptionSuccessfully()
+    /**
+     * @test
+     */
+    public function canSetSingleOptionSuccessfully()
     {
         $this->apiClient->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant');
 
         $this->assertEquals('elepant', $this->apiClient->getParameter(RhymeOpt::SPELLED_LIKE));
     }
 
-    public function testCanSetMultipleOptionSuccessfully()
+    /**
+     * @test
+     */
+    public function canSetMultipleOptionSuccessfully()
     {
         $this->apiClient->setOpts([
             RhymeOpt::SPELLED_LIKE => 'elepant',
@@ -50,7 +65,10 @@ class ApiClientTest extends TestCase
         $this->assertEquals('elepant', $this->apiClient->getParameter(RhymeOpt::SOUNDS_LIKE));
     }
 
-    public function testGetWordsReturnsEmptyWhenNoOptionsSpecified()
+    /**
+     * @test
+     */
+    public function getWordsReturnsEmptyWhenNoOptionsSpecified()
     {
         $this->apiClient->getWords();
 
@@ -59,12 +77,18 @@ class ApiClientTest extends TestCase
         $this->assertEmpty($data);
     }
 
-    public function testGetParameterReturnsNullWithInvalidOption()
+    /**
+     * @test
+     */
+    public function getParameterReturnsNullWithInvalidOption()
     {
         $this->assertNull($this->apiClient->getParameter('notActuallyReal'));
     }
 
-    public function testCanGetWordsWithOption()
+    /**
+     * @test
+     */
+    public function canGetWordsWithOption()
     {
         $this->apiClient->setOpt(RhymeOpt::SPELLED_LIKE, 'elepant');
         $this->apiClient->getWords();
@@ -74,7 +98,10 @@ class ApiClientTest extends TestCase
         $this->assertNotEmpty($data);
     }
 
-    public function testCanGetWordsWithOptionMethod()
+    /**
+     * @test
+     */
+    public function canGetWordsWithOptionMethod()
     {
         $this->apiClient->spelledLike('elepant');
         $this->apiClient->getWords();
@@ -84,12 +111,18 @@ class ApiClientTest extends TestCase
         $this->assertNotEmpty($data);
     }
 
-    public function testCanRetrieveProtectedProperty()
+    /**
+     * @test
+     */
+    public function canRetrieveProtectedProperty()
     {
         $this->assertEmpty($this->apiClient->parameter);
     }
 
-    public function testCanCallMethodWithNoContent()
+    /**
+     * @test
+     */
+    public function canCallMethodWithNoContent()
     {
         $result = $this->apiClient->spelledLike();
 
