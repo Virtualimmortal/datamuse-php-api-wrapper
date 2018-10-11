@@ -44,7 +44,7 @@ of topic           | topics       | `RhymeOpt::OF_TOPIC`            | `ofTopic()
 left context       | lc           | `RhymeOpt::LEFT_CONTEXT`        | `leftContext()`
 right context      | rc           | `RhymeOpt::RIGHT_CONTEXT`       | `rightContext()`
 
-They are used to specify a relation in order to build your response (read more [here](https://datamuse.com/api)).  
+They are used to specify a relation in order to build your response (read more [here](https://www.datamuse.com/api/)).  
 Below shows you how to use these codes.
 
 ##### PHP Code Example:
